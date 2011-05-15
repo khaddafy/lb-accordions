@@ -17,11 +17,11 @@ require_once(kin_accord_inc('accord_panel_editpage.php'));
 class KintassaAccordionMainPage extends KintassaPage {
 	function content() {
 		$recognised_modes = array(
-			"accordion_list"		=> array("KintassaAccordionTablePage", __("Kintassa Accordion")),
+			"accordion_list"		=> array("KintassaAccordionTablePage", __("Kintassa Accordions")),
 			"accordion_add"			=> array("KintassaAccordionAddPage", __("Add Accordion")),
 			"accordion_edit"		=> array("KintassaAccordionEditPage", __("Edit Accordion")),
-			"accordion_panel_add"	=> array("KintassaAccordionPanelAddPage", __("Add Entry")),
-			"accordion_panel_edit"	=> array("KintassaAccordionPanelEditPage", __("Edit Entry"))
+			"accordion_panel_add"	=> array("KintassaAccordionPanelAddPage", __("Add Panel")),
+			"accordion_panel_edit"	=> array("KintassaAccordionPanelEditPage", __("Edit Panel"))
 		);
 
 		// determine appropriate mode from web request

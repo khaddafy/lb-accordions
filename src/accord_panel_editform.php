@@ -21,6 +21,7 @@ class KintassaAccordionPanelEditForm extends KintassaAccordionPanelForm {
 			"name"				=> $panel->name,
 			"sort_pri"			=> $panel->sort_pri,
 			"accordion_id"		=> $panel->accordion_id,
+			"title"				=> $panel->title,
 			"content"			=> $panel->content,
 		);
 		parent::__construct($name, $default_vals);

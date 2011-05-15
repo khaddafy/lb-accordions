@@ -14,7 +14,7 @@ class KintassaAccordionAddForm extends KintassaAccordionForm {
 			"name"			=> "",
 			"width"			=> 320,
 			"height"		=> 200,
-			"display_mode"	=> "verticalblocks",
+			"display_mode"	=> "horiz_accordion",
 		);
 		parent::__construct($name, $default_vals);
 	}

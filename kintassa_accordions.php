@@ -42,12 +42,20 @@ class KintassaAccordionsPlugin extends KintassaWPPlugin {
 		add_action('init', array($this, 'install_scripts'));
 	}
 
-	function install_scripts() {
-        $myStyleUrl = plugins_url('/stylesheets/kintassa_accordions.css', __file__);
-	    wp_register_style('kintassa_accordions', $myStyleUrl);
+	function reg_script($name, $relpath) {
+		$abs_url = plugins_url("scripts" . DIRECTORY_SEPARATOR . $relpath, __file__);
+		wp_register_script($name, $abs_url, false, null);
+	}
 
-		wp_enqueue_script("jquery");
-        wp_enqueue_style('kintassa_accordions');
+	function install_scripts() {
+        $style_url = plugins_url('/stylesheets/kintassa_accordions.css', __file__);
+        wp_register_style('kintassa_accordions', $style_url);
+
+	    $this->reg_script("jquery_common_accordion", "jquery.msAccordion.compressed.js");
+
+	    wp_enqueue_script("jquery");
+		wp_enqueue_script("jquery_common_accordion");
+		wp_enqueue_style('kintassa_accordions');
 	}
 
 	function install() {

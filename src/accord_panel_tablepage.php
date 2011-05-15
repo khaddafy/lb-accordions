@@ -60,11 +60,11 @@ class KintassaAccordionPanelTableForm extends KintassaOptionsTableForm {
 	}
 
 	function begin_col($col) {
-		echo "<td>";
-		if ($col == 'content') {
+		if ($col == 'title' || $col == 'content') {
+			echo "<td>";
 			echo do_shortcode($this->row->$col);
 		} else {
-			echo $this->row->$col;
+			parent::begin_col($col);
 		}
 	}
 }
@@ -174,6 +174,7 @@ class KintassaAccordionPanelDBResultsPager extends KintassaPager {
 		@mysql_query("BEGIN", $wpdb->dbh);
 
 		$qry = "SELECT id FROM `{$table_name}` WHERE accordion_id={$this->accordion_id} ORDER BY sort_pri ASC,name ASC";
+		print_r($qry);
 		$rows = $wpdb->get_results($qry);
 		if (!$rows) {
 			echo("error running query");
@@ -282,7 +283,7 @@ class KintassaAccordionPanelDBResultsPager extends KintassaPager {
 		$accordion_id = $this->accordion_id;
 
 		$start_item = $page_size * $page_num;
-		$qry = "SELECT id,sort_pri,name,content FROM `{$this->table_name}` WHERE `accordion_id`={$accordion_id} ORDER BY `sort_pri` ASC, `name` ASC LIMIT {$start_item},{$page_size}";
+		$qry = "SELECT id,sort_pri,name,title,content FROM `{$this->table_name}` WHERE `accordion_id`={$accordion_id} ORDER BY `sort_pri` ASC, `name` ASC LIMIT {$start_item},{$page_size}";
 
 		return $qry;
 	}

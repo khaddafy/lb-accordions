@@ -56,7 +56,7 @@ class KintassaAccordionsMenu {
 	}
 
 	function about() {
-		$about_page = new KintassaAccordionAboutPage(__("About Kintassa Accordion"));
+		$about_page = new KintassaAccordionAboutPage(__("About Kintassa Accordions"));
 		$about_page->execute();
 	}
 }

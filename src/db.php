@@ -35,6 +35,7 @@ SQL;
 		  `id` INT NOT NULL AUTO_INCREMENT ,
 		  `sort_pri` INT NULL DEFAULT 0 ,
 		  `name` VARCHAR(255) NULL ,
+		  `title` TEXT,
 		  `content` TEXT,
 		  `accordion_id` INT NOT NULL,
 		  PRIMARY KEY (`id`)

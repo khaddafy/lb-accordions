@@ -31,6 +31,7 @@ class KintassaAccordionEditPage extends KintassaPage {
 			"id"			=> null,
 			"sort_pri"		=> "Sort Order",
 			"name"			=> "Name",
+			"title"			=> "Title",
 			"content"		=> "Content",
 		);
 

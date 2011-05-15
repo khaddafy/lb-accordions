@@ -83,3 +83,9 @@ table.upload-summary th {
 	text-align: left;
 	vertical-align: top;
 }
+
+.kintassa-applet-horiz_accordion {display:inline-block; background-color:#fff; overflow:hidden;}
+.kintassa-applet-horiz_accordion img {vertical-align:top; border:0; margin:0; padding:0}
+.kintassa-applet-horiz_accordion div {display:inline; float:left; margin:auto;}
+.kintassa-applet-horiz_accordion div.title {cursor:pointer; height: 100%; width: 3em;}
+.kintassa-applet-horiz_accordion div.content {display:none; width: 100%;}

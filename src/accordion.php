@@ -76,7 +76,7 @@ class KintassaAccordion extends KintassaMicroORMObject {
 		return true;
 	}
 
-	function render($width, $height) {
+	function render() {
 		assert($this->id != null);
 
 		if (!KintassaAccordionApplet::is_valid_applet($this->display_mode)) {
@@ -86,7 +86,7 @@ class KintassaAccordion extends KintassaMicroORMObject {
 		$applet_info = KintassaAccordionApplet::applet_info($this->display_mode);
 		$applet_class = $applet_info['class'];
 
-		$applet = new $applet_class($this, $width, $height);
+		$applet = new $applet_class($this);
 		return $applet->render();
 	}
 

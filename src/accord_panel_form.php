@@ -36,6 +36,14 @@ abstract class KintassaAccordionPanelForm extends KintassaForm {
 			$default_value = $def['accordion_id'], $required=true
 		);
 
+		$this->title_band = new KintassaFieldBand("titleband");
+		$this->title_field = new KintassaTextAreaField(
+			"Title", $name="title",
+			$default_value = $def['title'], $required = false
+		);
+		$this->title_band->add_child($this->title_field);
+		$this->add_child($this->title_band);
+
 		$this->content_band = new KintassaFieldBand("contentband");
 		$this->content_field = new KintassaTextAreaField(
 			"Content", $name="content",
@@ -62,6 +70,7 @@ abstract class KintassaAccordionPanelForm extends KintassaForm {
 		$dat = array(
 			"sort_pri"				=> $this->sort_pri_field->value(),
 			"name"					=> $this->name_field->value(),
+			"title"					=> $this->title_field->value(),
 			"content"				=> $this->content_field->value(),
 			"accordion_id"			=> (int) $this->accordion_id_field->value(),
 		);
@@ -72,6 +81,7 @@ abstract class KintassaAccordionPanelForm extends KintassaForm {
 	function data_format() {
 		$fmt = array(
 			"%d",
+			"%s",
 			"%s",
 			"%s",
 			"%d"

@@ -12,11 +12,9 @@ require_once(kintassa_core('kin_micro_orm.php'));
 class KintassaAccordionPanel extends KintassaMicroORMObject {
 	function init() {
 		$this->sort_pri = null;
-		$this->filepath = null;
 		$this->name = null;
-		$this->mimetype = null;
-		$this->description = null;
-		$this->link = null;
+		$this->title = null;
+		$this->content = null;
 		$this->accordion_id = null;
 	}
 
@@ -34,6 +32,7 @@ class KintassaAccordionPanel extends KintassaMicroORMObject {
 		$data = array(
 			"sort_pri"		=> $this->sort_pri,
 			"name"			=> $this->name,
+			"title"			=> $this->title,
 			"content"		=> $this->content,
 			"accordion_id"	=> (int) $this->accordion_id,
 		);
@@ -42,6 +41,7 @@ class KintassaAccordionPanel extends KintassaMicroORMObject {
 		);
 		$data_fmt = array(
 			"%d",
+			"%s",
 			"%s",
 			"%s",
 			"%d"
@@ -62,7 +62,7 @@ class KintassaAccordionPanel extends KintassaMicroORMObject {
 		assert($this->id != null);
 
 		$table_name = $this->table_name();
-		$qry = "SELECT sort_pri,name,content,accordion_id FROM `{$table_name}` WHERE `id`=%d;";
+		$qry = "SELECT sort_pri,name,title,content,accordion_id FROM `{$table_name}` WHERE `id`=%d;";
 		$args = array($this->id);
 		$qry = $wpdb->prepare($qry, $args);
 		$res = $wpdb->get_row($qry);
@@ -73,6 +73,7 @@ class KintassaAccordionPanel extends KintassaMicroORMObject {
 
 		$this->sort_pri = $res->sort_pri;
 		$this->name = stripslashes($res->name);
+		$this->title = stripslashes($res->title);
 		$this->content = stripslashes($res->content);
 		$this->accordion_id = $res->accordion_id;
 
