@@ -6,9 +6,10 @@
 //
 // Changes:
 //
-// 2011-05-27: v1.0 updated by Lee Braiden <lee.b@kintassa.com> to support
-//                  toggling the current panel when clicking on its header,
-//                  to create v1.0kin0.1
+// 2011-05-27: v1.0 updated by Lee Braiden <lee.b@kintassa.com> to support:
+//                  a) toggling the current panel when clicking on its header
+//                  b) starting with all panels collapsed
+//                  Changes create v1.0kin0.1
 //
 ;(function($){
 	$.fn.msAccordion = function(options) {

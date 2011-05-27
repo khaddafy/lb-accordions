@@ -84,19 +84,16 @@ table.upload-summary th {
 	vertical-align: top;
 }
 
-.kintassa-accordion-app {
-	background-color: darkblue;
-	width: 100%;
-}
+.kintassa-accordion-app { background-color: darkblue; width: 100%; }
 
-.kintassa-applet-horiz_accordion { overflow:hidden; width: 100%;}
+.kintassa-applet-horiz_accordion { overflow:hidden; width: 100%; height: 200px; width: 400px}
 .kintassa-applet-horiz_accordion img {vertical-align:top; border:0; margin:0; padding:0}
-.kintassa-applet-horiz_accordion div {display:inline; float:left; margin:auto;}
-.kintassa-applet-horiz_accordion div.title {cursor:pointer; height: 100%; width: 3em;}
-.kintassa-applet-horiz_accordion div.content {display:none; width: 100%;}
+.kintassa-applet-horiz_accordion div {display:inline; float:left; margin:auto; }
+.kintassa-applet-horiz_accordion div.title {cursor:pointer; height: 200px; width: 40px; background: lightblue;}
+.kintassa-applet-horiz_accordion div.content {display:none; width: 100%; width: 320px; background: white; }
 
 .kintassa-applet-vert_accordion { width: 100%; }
 .kintassa-applet-vert_accordion img {vertical-align:top; border:0; margin:0; padding:0}
 .kintassa-applet-vert_accordion div {margin:auto; width: 100%;}
-.kintassa-applet-vert_accordion div.title {cursor:pointer; width: 100%; }
-.kintassa-applet-vert_accordion div.content {display:none; width: 100%;}
+.kintassa-applet-vert_accordion div.title {cursor:pointer; width: 100%; background: lightblue;}
+.kintassa-applet-vert_accordion div.content {display:none; width: 100%; background: white; }
