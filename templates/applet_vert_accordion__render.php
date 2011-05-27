@@ -55,7 +55,7 @@ License: All rights reserved.  Contact Kintassa should you wish to license this 
 <script type="text/javascript">
 	jQuery(document).ready(
 		function () {
-			jQuery("#<?php echo $unique_id; ?>").msAccordion({defaultid:0, vertical:true});
+			jQuery("#<?php echo $unique_id; ?>").msAccordion({defaultid:0, vertical:true, start_collapsed:true});
 		}
 	);
 </script>
