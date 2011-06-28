@@ -142,18 +142,28 @@
 		}
 
 		function toggleMe(div) {
-			nxt = $("#"+div).next();
+			title_div = $("#"+div);
+			nxt = title_div.next();
 			if(options.vertical) {
 				nxt.slideToggle("slow");
 			} else {
 				nxt.hide("slow");
 			};
+			title_div.removeClass("title-expanded");
 		}
 		
+		function setExpanded(titleId) {
+			var parent_div = jQuery("#" + titleId).parent();
+			var child_titles = parent_div.children("div.title");
+			child_titles.removeClass("title-expanded");
+			jQuery("#" + titleId).addClass("title-expanded");
+		}
+
 		function openMe(id) {
 			var sTitleID = id;
 			var iCurrent = sTitleID.split("_")[sTitleID.split("_").length-1];
 			options.currentcounter = iCurrent;
+			title_div = jQuery("#" + sTitleID);
 			var sContentID = id+"_msContent_"+iCurrent;
 			if($("#"+sContentID).css("display")=="none") {
 				if(options.previousDiv!="") {
@@ -167,13 +177,18 @@
 				options.currentDiv = sContentID;
 				options.previousDiv = options.currentDiv;
 			};
-		};
+			setExpanded(sTitleID);
+		}
+
 		function closeMe(div) {
+			content_div = $("#"+div);
 			if(options.vertical) {
-				$("#"+div).slideUp("slow");
+				content_div.slideUp("slow");
 			} else {
-				$("#"+div).hide("slow");
+				content_div.hide("slow");
 			};
+			title_div = content_div.prev();
+			title_div.removeClass("title-expanded");
 		};	
 		function makeVertical() {
 			$("#"+elementid +" > div").css({display:"block", float:"none", clear:"both"});
