@@ -36,18 +36,28 @@ abstract class KintassaAccordionPanelForm extends KintassaForm {
 			$default_value = $def['accordion_id'], $required=true
 		);
 
+		if (array_key_exists('title', $def)) {
+			$title = $def['title'];
+		} else {
+			$title = '';
+		}
 		$this->title_band = new KintassaFieldBand("titleband");
 		$this->title_field = new KintassaTextAreaField(
 			"Title", $name="title",
-			$default_value = $def['title'], $required = false
+			$default_value = $title, $required = false
 		);
 		$this->title_band->add_child($this->title_field);
 		$this->add_child($this->title_band);
 
+		if (array_key_exists('content', $def)) {
+			$content = $def['content'];
+		} else {
+			$content = '';
+		}
 		$this->content_band = new KintassaFieldBand("contentband");
 		$this->content_field = new KintassaTextAreaField(
 			"Content", $name="content",
-			$default_value = $def['content'], $required = false
+			$default_value = $content, $required = false
 		);
 		$this->content_band->add_child($this->content_field);
 		$this->add_child($this->content_band);
