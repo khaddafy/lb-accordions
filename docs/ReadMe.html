@@ -13,8 +13,10 @@
 
 		<p>This plugin provides an easy, intuitive interface for creating
 		accordions -- stacked panels with titles, which reveal the chosen
-		panel when clicked or otherwise interacted with.  Features
-		include:</p>
+		panel when clicked or otherwise interacted with.  Accordions are also
+		known as toolboxes.</p>
+		
+		<h2>Features</h2>
 
 		<ul>
 			<li>Multiple Accordions</li>
@@ -50,6 +52,71 @@
 		</p>
 
 
+		<h2>Styling</h2>
+
+		<p>You'll undoubtedly want to style the accordions to suit your
+		particular site.  To do so, edit the
+		<code>stylesheets/kintassa_accordions.css</code> file.</p>
+
+		<p>For more structural changes, edit the templates/applet_*_render.php files,
+		where the * matches the short name for whichever display mode you have
+		chosen, in the admin interface.  For example, if you have chosen
+		a vertical accordion, and would like to edit the generated HTML for
+		this, modify the
+		<code>templates/applet_vert_accordion__render.php</code> file. In
+		particular, you can edit some javascript options here to do with the
+		accordion's settings:</p>
+
+		<h3>Accordion Javascript Settings</h3>
+
+		<p>Some custom options are supported by the javascript accordion
+		code itself.  These options are provided by the template php files
+		which write the javascript calls.  For example, near the bottom of
+		<code>templates/applet_vert_accordion__render.php</code>, you will
+		see:</p>
+
+		<p>
+			<code>function () {<br>
+				<blockquote>
+					jQuery("#&lt;?php echo $unique_id; ?&gt;").msAccordion({<br>
+						defaultid:0, vertical:true, start_collapsed:true<br>
+					});<br>
+				</blockquote>
+			}
+			</code>
+		</p>
+
+		<p>These default options -- defaultid, vertical, and start_collapsed --
+		can all be changed as needed.  Options are as follows:</p>
+
+		<dl>
+			<dt>defaultid</dt>
+			<dd>The index of the default panel to show, counting from 0.  For
+			instance, to display the first panel by default, use defaultid:0.
+			To display the second panel by default, use defaultid:1, and so
+			on.  Will only work if start_collapsed is false.</dd>
+
+			<dt>vertical</dt>
+			<dd>Whether to use vertical sliding instead of horizontal hiding
+			when changing panels. true or false; defaults to false.</dd>
+
+			<dt>start_collapsed</dt>
+			<dd>Whether the panels should all be collapsed by default, when
+			the accordion is first shown.  true or false; defaults to false.
+			</dd>
+		</dl>
+
+		<h3>Custom Rendering Applets</h3>
+
+		<p>To create a completely different rendering method, or to modify
+		a rendering method without affecting existing methods (better for
+		upgrading later), create a new applet in the <code>applets</code>
+		folder, and a new template for it in the <code>templates</code>
+		folder -- possibly by copying existing applets or templates.  Then
+		modify the new template and applet accordingly.  In particular if
+		copying, be sure to replace all mentions of the old applet name with
+		your chosen new name.</p>
+
 		<h2>Contacting Kintassa</h2>
 
 		<p>If you have any questions about this plugin, please contact
@@ -67,6 +134,7 @@
 			</a>
 		</p>
 
-		<p>We hope you enjoy Kintassa Accordions!</p>
+		<p>We hope you enjoy <a href="http://www.kintassa.com">Kintassa</a>
+		Accordions!</p>
 	</body>
 </html>

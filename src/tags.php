@@ -11,9 +11,9 @@ require_once(kin_accord_inc('accordion.php'));
 /***
  * publically callable function for rendering galleries in templates
  */
-function kintassa_accordion($accordion_id, $w, $h) {
+function kintassa_accordion($accordion_id) {
 	$accordion = new KintassaAccordion($accordion_id);
-	$rendered_html = $accordion->render($w, $h);
+	$rendered_html = $accordion->render();
 	return($rendered_html);
 }
 
